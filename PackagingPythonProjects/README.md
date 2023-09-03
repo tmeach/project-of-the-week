@@ -8,4 +8,4 @@ This repo about learning packaging Python project by example my personal project
 **Dates**: from 30th August to 4th September.
 
 ### Project Description
-As a working python code I use my (Telegram Messenger Python Bot)[https://core.telegram.org/bots/api] code. This bot allows you convert currency pair whatever you want. For this project I worked with telebot and currency_converter libraries. 
+As a working python code I use my [Telegram Messenger Python Bot](https://core.telegram.org/bots/api) code. This bot allows you convert currency pair whatever you want. For this project I worked with telebot and currency_converter libraries. 
