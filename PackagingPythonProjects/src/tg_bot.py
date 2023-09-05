@@ -1,16 +1,16 @@
 import telebot
 from currency_converter import CurrencyConverter
 from telebot import types
+import config
 
 # Telegram bot settings
-my_token = '***'  # Replace with your personal token
-bot = telebot.TeleBot(token=my_token)
-chat_id = '***'  # Replace with your chat_id
+bot = telebot.TeleBot(token=config.BOT_TOKEN) # put your personal token here 
+chat_id = config.CHAT_ID # put your chat_id here
 
 currency = CurrencyConverter()
 amount = 0
 
-
+@bot.message_handler(commands=['start'])
 def start(message):
     """
     Handler for the /start command.
@@ -46,8 +46,9 @@ def summa(message):
         bot.send_message(message.chat.id, 'Pick your pair', reply_markup=markup)
     else:
         bot.send_message(message.chat.id, 'The number must be greater than 0. Enter the amount:')
+        bot.register_next_step_handler(message, summa)
 
-
+@bot.callback_query_handler(func=lambda call: True)
 def callback(call):
     """
     Handler for button clicks on the keyboard.
